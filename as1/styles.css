@@ -1,0 +1,11 @@
+img {
+	width: 100px;
+}
+
+table,
+th,
+td {
+	margin: 1px;
+	padding: 1px;
+	border: 1px solid black;
+}
