@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="app">
+		<textarea v-model="name"></textarea>
+		<h1 v-once>hello {{name}}</h1>
+		<img :src={{img}} alt="234">
+
+
+	</div>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			data() {
+				return {
+					name: 'abc',
+					img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/1200px-Cat_November_2010-1a.jpg"
+				}
+			}
+		})
+		app.mount('#app')
+
+	</script>
+	<script>
+		let array = [1, 2, 3, 4];
+
+	</script>
+</body>
+
+</html>

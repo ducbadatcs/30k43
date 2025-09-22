@@ -1,50 +1,82 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles.css">
-  <title>Vite App</title>
+	<meta charset="UTF-8">
+	<link rel="icon" href="/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./styles.css">
+	<title>Vite App</title>
 </head>
 
 <body>
-  <div id="app">
-    <h1>Event Management</h1>
-    <img src="pexels-pixabay-50675.jpg" alt="event management image">
-    <div id="why-choose-us">
-      <h2>Why choose us?</h2>
-      <p>Here are some reasons why you should choose our service.</p>
-      <section>
-        <h4>On Time</h4>
-        <p>We make sure that all of our events are hosted at the right time</p>
-      </section>
-      <section>
-        <h4>Experienced</h4>
-        <p>We have years of experience building large-scale events.</p>
-      </section>
-      <section>
-        <h4>Satisfied customers</h4>
-        <p>Most of our customer reviews are positive</p>
-      </section>
-      <section>
-        <h4>High safety</h4>
-        <p>Most of our events report no incidents</p>
-      </section>
-      <section>
-        <h4>lorem</h4>
-        <p>ran out of things to write</p>
-      </section>
-      <section>
-        <h4>test</h4>
-        <p>test</p>
-      </section>
+	<div id="app">
+		<h1>Event Management</h1>
+		<img src="pexels-pixabay-50675.jpg" alt="event management image">
+		<div id="why-choose-us">
+			<h2>Why choose us?</h2>
+			<p>Here are some reasons why you should choose our service.</p>
+			<section>
+				<h4>On Time</h4>
+				<p>We make sure that all of our events are hosted at the right time</p>
+			</section>
+			<section>
+				<h4>Experienced</h4>
+				<p>We have years of experience building large-scale events.</p>
+			</section>
+			<section>
+				<h4>Satisfied customers</h4>
+				<p>Most of our customer reviews are positive</p>
+			</section>
+			<section>
+				<h4>High safety</h4>
+				<p>Most of our events report no incidents</p>
+			</section>
+			<section>
+				<h4>lorem</h4>
+				<p>ran out of things to write</p>
+			</section>
+			<section>
+				<h4>test</h4>
+				<p>test</p>
+			</section>
 
-    </div>
-  </div>
-  <div id="events-table"></div>
-  <script type="module" src="/src/main.ts"></script>
+		</div>
+	</div>
+
+	<form action="" id="events-filter">
+		<p>Search events by:</p>
+		<label for="filter-id">ID: </label>
+		<input type="text" name="id" id="filter-id"><br>
+		<label for="filter-name">Name: </label>
+		<input type="text" name="name" id="filter-name"><br>
+		<fieldset>
+			<legend>Category</legend>
+			<input type="radio" name="category" id="filter-form-technology" value="Technology">
+			<label for="filter-form-technology">Technology</label>
+			<input type="radio" name="category" id="filter-form-business" value="Business">
+			<label for="filter-form-business">Business</label>
+			<input type="radio" name="category" id="filter-form-finance" value="Finance">
+			<label for="filter-form-finance">Finance</label>
+			<input type="radio" name="category" id="filter-form-marketing" value="Marketing">
+			<label for="filter-form-marketing">Marketing</label>
+			<input type="radio" name="category" id="filter-form-all" value="All">
+			<label for="filter-form-all">All</label>
+		</fieldset>
+		<br>
+		<label for="filter-duration-lower">Duration: From </label>
+		<input type="number" name="durationLower" id="filter-duration-lower">
+		<label for="filter-duration-upper">To </label>
+		<input type="number" name="durationUpper" id="filter-duration-upper">
+		<label for="filter-duration-upper">Hours. </label> <br>
+		<input type="submit" value="Search">
+	</form>
+	<div id="events-table"></div>
+	<script type="module" src="/src/table.ts"></script>
+	<script>
+		// <!-- setup hooks -->
+
+	</script>
 </body>
 
 </html>

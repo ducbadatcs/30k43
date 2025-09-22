@@ -1,129 +1,138 @@
-class Event {
-  eventid: string = "";
-  eventname: string = "";
-  category: string = "";
-  durationhour: number = 0;
+enum EventType {
+	Technology = "Technology",
+	Business = "Business",
+	Finance = "Finance",
+	Marketing = "Marketing",
+	All = "",
 }
 
-export const events: Event[] = [
-  {
-    eventid: "EVT10001",
-    eventname: "Tech Innovations Conference",
-    category: "Technology",
-    durationhour: 8,
-  },
-  {
-    eventid: "EVT10002",
-    eventname: "Startup Pitch Day",
-    category: "Business",
-    durationhour: 6,
-  },
-  {
-    eventid: "EVT10003",
-    eventname: "AI & Machine Learning Summit",
-    category: "Technology",
-    durationhour: 10,
-  },
-  {
-    eventid: "EVT10004",
-    eventname: "Cybersecurity Workshop",
-    category: "Technology",
-    durationhour: 4,
-  },
-  {
-    eventid: "EVT10005",
-    eventname: "Digital Marketing Bootcamp",
-    category: "Marketing",
-    durationhour: 6,
-  },
-  {
-    eventid: "EVT10006",
-    eventname: "Blockchain and Cryptocurrency",
-    category: "Finance",
-    durationhour: 5,
-  },
-  {
-    eventid: "EVT10007",
-    eventname: "Entrepreneurship Forum",
-    category: "Business",
-    durationhour: 7,
-  },
-  {
-    eventid: "EVT10008",
-    eventname: "Data Science Hackathon",
-    category: "Technology",
-    durationhour: 12,
-  },
-  {
-    eventid: "EVT10009",
-    eventname: "Leadership and Management Summit",
-    category: "Business",
-    durationhour: 9,
-  },
-  {
-    eventid: "EVT10010",
-    eventname: "E-commerce Strategies",
-    category: "Marketing",
-    durationhour: 6,
-  },
-  {
-    eventid: "EVT10011",
-    eventname: "AI for Business",
-    category: "Business",
-    durationhour: 8,
-  },
-  {
-    eventid: "EVT10012",
-    eventname: "IoT & Smart Devices Expo",
-    category: "Technology",
-    durationhour: 7,
-  },
-  {
-    eventid: "EVT10013",
-    eventname: "Brand Strategy and Growth",
-    category: "Marketing",
-    durationhour: 5,
-  },
-  {
-    eventid: "EVT10014",
-    eventname: "Investment and Wealth Management",
-    category: "Finance",
-    durationhour: 6,
-  },
-  {
-    eventid: "EVT10015",
-    eventname: "Financial Technology (FinTech) Summit",
-    category: "Finance",
-    durationhour: 8,
-  },
-  {
-    eventid: "EVT10016",
-    eventname: "AI Ethics and Regulations",
-    category: "Technology",
-    durationhour: 4,
-  },
-  {
-    eventid: "EVT10017",
-    eventname: "Business Analytics Workshop",
-    category: "Business",
-    durationhour: 6,
-  },
-  {
-    eventid: "EVT10018",
-    eventname: "SEO and Content Marketing",
-    category: "Marketing",
-    durationhour: 7,
-  },
-  {
-    eventid: "EVT10019",
-    eventname: "Cryptocurrency Investment Strategies",
-    category: "Finance",
-    durationhour: 9,
-  },
-  {
-    eventid: "EVT10020",
-    eventname: "Social Media Marketing Trends",
-    category: "Marketing",
-    durationhour: 5,
-  },
+export class Evt {
+	id: string = "";
+	name: string = "";
+	// category: EventType = EventType.All;
+	category: string = "";
+	duration: number = 0;
+}
+
+export const events: Evt[] = [
+	{
+		id: "EVT10001",
+		name: "Tech Innovations Conference",
+		category: "Technology",
+		duration: 8,
+	},
+	{
+		id: "EVT10002",
+		name: "Startup Pitch Day",
+		category: "Business",
+		duration: 6,
+	},
+	{
+		id: "EVT10003",
+		name: "AI & Machine Learning Summit",
+		category: "Technology",
+		duration: 10,
+	},
+	{
+		id: "EVT10004",
+		name: "Cybersecurity Workshop",
+		category: "Technology",
+		duration: 4,
+	},
+	{
+		id: "EVT10005",
+		name: "Digital Marketing Bootcamp",
+		category: "Marketing",
+		duration: 6,
+	},
+	{
+		id: "EVT10006",
+		name: "Blockchain and Cryptocurrency",
+		category: "Finance",
+		duration: 5,
+	},
+	{
+		id: "EVT10007",
+		name: "Entrepreneurship Forum",
+		category: "Business",
+		duration: 7,
+	},
+	{
+		id: "EVT10008",
+		name: "Data Science Hackathon",
+		category: "Technology",
+		duration: 12,
+	},
+	{
+		id: "EVT10009",
+		name: "Leadership and Management Summit",
+		category: "Business",
+		duration: 9,
+	},
+	{
+		id: "EVT10010",
+		name: "E-commerce Strategies",
+		category: "Marketing",
+		duration: 6,
+	},
+	{
+		id: "EVT10011",
+		name: "AI for Business",
+		category: "Business",
+		duration: 8,
+	},
+	{
+		id: "EVT10012",
+		name: "IoT & Smart Devices Expo",
+		category: "Technology",
+		duration: 7,
+	},
+	{
+		id: "EVT10013",
+		name: "Brand Strategy and Growth",
+		category: "Marketing",
+		duration: 5,
+	},
+	{
+		id: "EVT10014",
+		name: "Investment and Wealth Management",
+		category: "Finance",
+		duration: 6,
+	},
+	{
+		id: "EVT10015",
+		name: "Financial Technology (FinTech) Summit",
+		category: "Finance",
+		duration: 8,
+	},
+	{
+		id: "EVT10016",
+		name: "AI Ethics and Regulations",
+		category: "Technology",
+		duration: 4,
+	},
+	{
+		id: "EVT10017",
+		name: "Business Analytics Workshop",
+		category: "Business",
+		duration: 6,
+	},
+	{
+		id: "EVT10018",
+		name: "SEO and Content Marketing",
+		category: "Marketing",
+		duration: 7,
+	},
+	{
+		id: "EVT10019",
+		name: "Cryptocurrency Investment Strategies",
+		category: "Finance",
+		duration: 9,
+	},
+	{
+		id: "EVT10020",
+		name: "Social Media Marketing Trends",
+		category: "Marketing",
+		duration: 5,
+	},
 ];
