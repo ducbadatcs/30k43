@@ -22,148 +22,106 @@ export const checkEventFilter = (
 	// note that empty string values for strings and NaN values for numbers
 	// automatically indicate a true condition. String values doesn't need
 	// any extra checks since string.includes("") should always be true.
-	return event.id.includes(id) &&
-		event.name.includes(name) &&
-		category == "All"
+
+	const idCheck = event.id.toLowerCase().includes(id.toLowerCase());
+	const nameCheck = event.name.toLowerCase().includes(name.toLowerCase());
+	const categoryCheck =
+		category == "ALL" || category == ""
+			? true
+			: event.category.toLowerCase().includes(category.toLowerCase());
+	const lowerCheck = isNaN(durationLower)
 		? true
-		: event.category == category &&
-				(isNaN(durationLower)
-					? true
-					: durationLower <= event.duration) &&
-				(isNaN(durationUpper) ? true : event.duration <= durationUpper);
+		: durationLower <= event.duration;
+	const upperCheck = isNaN(durationUpper)
+		? true
+		: event.duration <= durationUpper;
+	return idCheck && nameCheck && categoryCheck && lowerCheck && upperCheck;
 };
 
-export const filterTable = (
+export const filteredTable = (
+	id: string = "",
+	name: string = "",
+	category: string = "",
+	durationLower: number = NaN,
+	durationUpper: number = NaN
+): HTMLTableElement => {
+	// create a table of filtered events based on the `checkEventFilter` function.
+	// const eventsTable = document.getElementById("events-table");
+
+	// create table
+	const table = document.createElement("table");
+
+	// header
+	const header = table.createTHead();
+	const headerRow = header.insertRow();
+	const eventAttributes: string[] = [
+		"Event ID",
+		"Event Name",
+		"Category",
+		"Duration Hours",
+	];
+	eventAttributes.forEach((attribute) => {
+		const th = document.createElement("th");
+		th.textContent = attribute;
+		headerRow.appendChild(th);
+	});
+
+	// body
+	const body = table.createTBody();
+
+	let eventNotFound: boolean = true;
+	for (let event of events) {
+		if (
+			checkEventFilter(
+				event,
+				id,
+				name,
+				category,
+				durationLower,
+				durationUpper
+			)
+		) {
+			eventNotFound = false;
+			// add to events list
+			const tr = body.insertRow();
+			tr.insertCell().textContent = event.id;
+			tr.insertCell().textContent = event.name;
+			tr.insertCell().textContent = event.category;
+			tr.insertCell().textContent = event.duration.toString();
+		}
+	}
+
+	if (eventNotFound) {
+		// TODO: Add a "Event not found" here
+		const tr = body.insertRow();
+		const td = tr.insertCell();
+		td.colSpan = 4;
+		td.textContent = "No events found";
+		td.style.textAlign = "center";
+		td.style.fontStyle = "italic";
+	}
+
+	return table;
+};
+
+export const displayTable = () => {
+	const eventsTable = document.getElementById("events-table");
+	if (eventsTable) {
+		eventsTable.replaceChildren(filteredTable());
+	}
+};
+
+export const displayFilteredTable = (
 	id: string = "",
 	name: string = "",
 	category: string = "",
 	durationLower: number = NaN,
 	durationUpper: number = NaN
 ) => {
-	// create a table of filtered events based on the `checkEventFilter` function.
 	const eventsTable = document.getElementById("events-table");
 	if (eventsTable) {
-		// create table
-		const table = document.createElement("table");
-
-		// header
-		const header = table.createTHead();
-		const headerRow = header.insertRow();
-		const eventAttributes: string[] = [
-			"Event ID",
-			"Event Name",
-			"Category",
-			"Duration Hours",
-		];
-		eventAttributes.forEach((attribute) => {
-			const th = document.createElement("th");
-			th.textContent = attribute;
-			headerRow.appendChild(th);
-		});
-
-		// body
-		const body = table.createTBody();
-
-		let eventNotFound: boolean = true;
-		for (let event of events) {
-			if (
-				checkEventFilter(
-					event,
-					id,
-					name,
-					category,
-					durationLower,
-					durationUpper
-				)
-			) {
-				eventNotFound = false;
-				// add to events list
-				const tr = body.insertRow();
-				tr.insertCell().textContent = event.id;
-				tr.insertCell().textContent = event.name;
-				tr.insertCell().textContent = event.category;
-				tr.insertCell().textContent = event.duration.toString();
-			}
-		}
-
-		if (eventNotFound) {
-			// TODO: Add a "Event not found" here
-			const tr = body.insertRow();
-			const td = tr.insertCell();
-			td.colSpan = 4;
-			td.textContent = "No events found";
-			td.style.textAlign = "center";
-			td.style.fontStyle = "italic";
-		}
-
-		eventsTable.replaceChildren(table);
-	}
-};
-
-export const displayTable = () => {
-	const eventsTable = document.getElementById("events-table");
-	if (eventsTable) {
-		// create table
-		const table = document.createElement("table");
-
-		// header
-		const header = table.createTHead();
-		const headerRow = header.insertRow();
-		const eventAttributes: string[] = [
-			"Event ID",
-			"Event Name",
-			"Category",
-			"Duration Hours",
-		];
-		eventAttributes.forEach((attribute) => {
-			const th = document.createElement("th");
-			th.textContent = attribute;
-			headerRow.appendChild(th);
-		});
-
-		// body
-		const body = table.createTBody();
-		events.forEach((event) => {
-			const tr = body.insertRow();
-			tr.insertCell().textContent = event.id;
-			tr.insertCell().textContent = event.name;
-			tr.insertCell().textContent = event.category;
-			tr.insertCell().textContent = event.duration.toString();
-		});
-
-		eventsTable.replaceChildren(table);
-	}
-};
-
-export const displayFilteredTable = () => {
-	const tableFilterForm = document.getElementById(
-		"events-filter"
-	) as HTMLFormElement | null;
-	if (tableFilterForm) {
-		tableFilterForm.addEventListener("submit", (event) => {
-			event.preventDefault();
-			const formData = new FormData(
-				event.currentTarget as HTMLFormElement
-			);
-			const id =
-				(formData.get("id") as string | null)?.trim().toLowerCase() ??
-				"";
-			const name =
-				(formData.get("name") as string | null)?.trim().toLowerCase() ??
-				"";
-			const type =
-				(formData.get("type") as string | null)?.trim().toLowerCase() ??
-				"";
-			// duration
-
-			const durationStr =
-				(formData.get("duration") as string | null)
-					?.trim()
-					.toLowerCase() ?? "";
-			let duration = 0;
-			if (durationStr) {
-				duration = Number(durationStr);
-			}
-		});
+		eventsTable.replaceChildren(
+			filteredTable(id, name, category, durationLower, durationUpper)
+		);
 	}
 };
