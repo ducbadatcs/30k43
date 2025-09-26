@@ -26,7 +26,7 @@ export const checkEventFilter = (
 	const idCheck = event.id.toLowerCase().includes(id.toLowerCase());
 	const nameCheck = event.name.toLowerCase().includes(name.toLowerCase());
 	const categoryCheck =
-		category == "ALL" || category == ""
+		category.toLowerCase() == "all" || category == ""
 			? true
 			: event.category.toLowerCase().includes(category.toLowerCase());
 	const lowerCheck = isNaN(durationLower)
@@ -36,6 +36,25 @@ export const checkEventFilter = (
 		? true
 		: event.duration <= durationUpper;
 	return idCheck && nameCheck && categoryCheck && lowerCheck && upperCheck;
+};
+
+export const filteredEventList = (
+	id: string = "",
+	name: string = "",
+	category: string = "",
+	durationLower: number = NaN,
+	durationUpper: number = NaN
+): Evt[] => {
+	return events.filter((event) =>
+		checkEventFilter(
+			event,
+			id,
+			name,
+			category,
+			durationLower,
+			durationUpper
+		)
+	);
 };
 
 export const filteredTable = (
@@ -69,29 +88,15 @@ export const filteredTable = (
 	// body
 	const body = table.createTBody();
 
-	let eventNotFound: boolean = true;
-	for (let event of events) {
-		if (
-			checkEventFilter(
-				event,
-				id,
-				name,
-				category,
-				durationLower,
-				durationUpper
-			)
-		) {
-			eventNotFound = false;
-			// add to events list
-			const tr = body.insertRow();
-			tr.insertCell().textContent = event.id;
-			tr.insertCell().textContent = event.name;
-			tr.insertCell().textContent = event.category;
-			tr.insertCell().textContent = event.duration.toString();
-		}
-	}
+	let eventList = filteredEventList(
+		id,
+		name,
+		category,
+		durationLower,
+		durationUpper
+	);
 
-	if (eventNotFound) {
+	if (eventList.length == 0) {
 		// TODO: Add a "Event not found" here
 		const tr = body.insertRow();
 		const td = tr.insertCell();
@@ -99,16 +104,18 @@ export const filteredTable = (
 		td.textContent = "No events found";
 		td.style.textAlign = "center";
 		td.style.fontStyle = "italic";
+		return table;
 	}
 
+	for (let event of eventList) {
+		// add to events list
+		const tr = body.insertRow();
+		tr.insertCell().textContent = event.id;
+		tr.insertCell().textContent = event.name;
+		tr.insertCell().textContent = event.category;
+		tr.insertCell().textContent = event.duration.toString();
+	}
 	return table;
-};
-
-export const displayTable = () => {
-	const eventsTable = document.getElementById("events-table");
-	if (eventsTable) {
-		eventsTable.replaceChildren(filteredTable());
-	}
 };
 
 export const displayFilteredTable = (
@@ -123,5 +130,12 @@ export const displayFilteredTable = (
 		eventsTable.replaceChildren(
 			filteredTable(id, name, category, durationLower, durationUpper)
 		);
+	}
+};
+
+export const displayTable = () => {
+	const eventsTable = document.getElementById("events-table");
+	if (eventsTable) {
+		eventsTable.replaceChildren(filteredTable());
 	}
 };

@@ -1,0 +1,80 @@
+@use "bootstrap/scss/bootstrap";
+
+body {
+	margin: auto;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	// width: 90%;
+	background-image: url("./pexels-pixabay-50675.jpg");
+}
+
+.content {
+	flex-direction: column;
+	display: flex;
+	padding: 5%;
+	width: 90%;
+	border-radius: 2px;
+	background-color: white;
+	margin: auto;
+	align-items: center;
+	justify-content: center;
+
+	h2 {
+		margin: auto;
+		margin-bottom: 2px;
+	}
+}
+
+nav {
+	width: 100%;
+	background-color: black;
+	margin-bottom: 30px;
+	p {
+		display: flex;
+		justify-content: center;
+	}
+
+	a {
+		color: white;
+		text-decoration: underline;
+	}
+}
+
+img {
+	width: 100px;
+}
+
+table,
+th,
+td {
+	margin: 1px;
+	padding: 3px;
+	border: 1px solid black;
+	// display: flex;
+	text-align: center;
+	align-items: center;
+}
+
+#why-choose-us {
+	margin-bottom: 10px;
+	.card {
+		// -webkit-box-shadow: 0px 8px 27px 6px rgba(66, 68, 90, 1);
+		// -moz-box-shadow: 0px 8px 27px 6px rgba(66, 68, 90, 1);
+		// box-shadow: 0px 8px 27px 6px rgb(152, 154, 172);
+	}
+
+	// margin: 3px;
+	justify-content: center;
+
+	.card-body {
+		text-align: center;
+	}
+}
+
+form {
+	padding: 3px;
+	border-radius: 2px;
+	border: 1px solid black;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<nav class="row g-2">
+		<p class="col-12 col-md-6"><a href="./index.html">Index</a></p>
+		<p class="col-12 col-md-6"><a href="">Register</a></p>
+	</nav>
+	<div class="content">
+		<h1>Register for an event!</h1>
+		<form method="" action="" id="registration">
+			<label for="registration-username">Name: </label>
+			<input type="text" name="username" id="registration-username" placeholder="John Doe" required><br>
+			<label for="registration-userpassword">Password: </label>
+			<input type="password" name="userpassword" id="registration-userpassword" required><br>
+			<label for="registration-confirmpassword">Confirm Pasword: </label>
+			<input type="password" name="confirmpassword" id="registration-confirmpassword" required><br>
+			<p id="registration-checkpassword-match"></p>
+			<fieldset id="registration-event-type">
+				<legend>Category</legend>
+				<input type="radio" name="registration-category" id="registration-form-business" value="Business"
+					checked>
+				<label for="registration-form-business">Business</label>
+				<input type="radio" name="registration-category" id="registration-form-technology" value="Technology">
+				<label for="registration-form-technology">Technology</label>
+
+				<input type="radio" name="registration-category" id="registration-form-finance" value="Finance">
+				<label for="registration-form-finance">Finance</label>
+				<input type="radio" name="registration-category" id="registration-form-marketing" value="Marketing">
+				<label for="registration-form-marketing">Marketing</label>
+				<input type="radio" name="registration-category" id="registration-form-all" value="All">
+				<label for="registration-form-all">All</label>
+			</fieldset>
+			<label for="registration-form-select">Select Event: </label>
+			<select name="registration-event" id="registration-form-select">
+			</select>
+			<input type="submit" value="Submit!" id="registration-form-submit">
+		</form>
+		<section></section>
+		<p id="registration-info-username"></p>
+		<p id="registration-info-category"></p>
+		<p id="registration-info-event"></p>
+		</section>
+		<script type="module" src="./src/registration.ts"></script>
+	</div>
+</body>
+
+</html>

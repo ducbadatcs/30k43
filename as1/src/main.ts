@@ -1,5 +1,5 @@
 import { displayFilteredTable, filteredTable, displayTable } from "./table";
-
+import "../styles.scss";
 // table
 const tableFilterForm = document.getElementById(
 	"events-filter"
@@ -19,21 +19,15 @@ if (tableFilterForm) {
 		// duration
 
 		// diabolical
-		let durationLowerStr =
-			(formData.get("durationLower") as string | null)?.trim() ?? "NaN";
-		if (durationLowerStr.length == 0) {
-			durationLowerStr = "NaN";
-		}
+		const durationLowerStr =
+			(formData.get("durationLower") as string | null)?.trim() ?? "";
 
-		let durationLower = Number(durationLowerStr);
+		const durationLower = durationLowerStr ? Number(durationLowerStr) : NaN;
 
-		let durationUpperStr =
-			(formData.get("durationUpper") as string | null)?.trim() ?? "NaN";
-		if (durationLowerStr.length == 0) {
-			durationLowerStr = "NaN";
-		}
+		const durationUpperStr =
+			(formData.get("durationUpper") as string | null)?.trim() ?? "";
 
-		let durationUpper = Number(durationLowerStr);
+		const durationUpper = durationUpperStr ? Number(durationUpperStr) : NaN;
 
 		displayFilteredTable(id, name, category, durationLower, durationUpper);
 	});

@@ -6,77 +6,119 @@
 	<link rel="icon" href="/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./styles.css">
+	<link rel="stylesheet" href="./node_modules/bootstrap/scss/bootstrap-grid.scss">
 	<title>Vite App</title>
 </head>
 
 <body>
-	<div id="app">
-		<h1>Event Management</h1>
-		<img src="pexels-pixabay-50675.jpg" alt="event management image">
-		<div id="why-choose-us">
-			<h2>Why choose us?</h2>
-			<p>Here are some reasons why you should choose our service.</p>
-			<section>
-				<h4>On Time</h4>
-				<p>We make sure that all of our events are hosted at the right time</p>
-			</section>
-			<section>
-				<h4>Experienced</h4>
-				<p>We have years of experience building large-scale events.</p>
-			</section>
-			<section>
-				<h4>Satisfied customers</h4>
-				<p>Most of our customer reviews are positive</p>
-			</section>
-			<section>
-				<h4>High safety</h4>
-				<p>Most of our events report no incidents</p>
-			</section>
-			<section>
-				<h4>lorem</h4>
-				<p>ran out of things to write</p>
-			</section>
-			<section>
-				<h4>test</h4>
-				<p>test</p>
-			</section>
+	<nav class="row g-2">
+		<p class="col-12 col-md-6"><a href="">Index</a></p>
+		<p class="col-12 col-md-6"><a href="./register.html">Register</a></p>
+	</nav>
+	<div class="content">
+		<div id="app" class="container d-flex align-items-center flex-column">
+			<h1>Welcome to Event Management!</h1>
+			<!-- <img src="pexels-pixabay-50675.jpg" alt="event management image"> -->
 
+			<div id="why-choose-us" class="container">
+				<h2 class="d-flex align-content-center justify-content-center">Why choose us?</h2>
+				<p class="d-flex align-content-center justify-content-center">
+					Here are some reasons why you should choose our service.</p>
+				<div class="row g-4">
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h4 class="card-title">On Time</h4>
+								<p class="card-text">We make sure that all of our events are hosted at the right time</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h4 class="card-title">Experienced</h4>
+								<p class="card-text">We have years of experience building large-scale events.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h4 class="card-title">Satisfied customers</h4>
+								<p class="card-text">Most of our customer reviews are positive</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h4 class="card-title">High safety</h4>
+								<p class="card-text">Most of our events are safely secured from outside intervention, to give you the
+									maximum enjoyment.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h4 class="card-title">High quality food</h4>
+								<p class="card-text">We support your happy times with accompanying delicious food and drinks!</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="card h-100">
+							<div class="card-body">
+								<h4 class="card-title">Test</h4>
+								<p class="card-text">Test</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
 		</div>
+
+
+		<form action="post" id="events-filter">
+			<p>Search events by:</p>
+			<label for="filter-id">ID: </label>
+			<input type="text" name="id" id="filter-id"><br>
+			<label for="filter-name">Name: </label>
+			<input type="text" name="name" id="filter-name"><br>
+			<fieldset>
+				<legend>Category</legend>
+				<input type="radio" name="category" id="filter-form-technology" value="Technology">
+				<label for="filter-form-technology">Technology</label>
+				<input type="radio" name="category" id="filter-form-business" value="Business">
+				<label for="filter-form-business">Business</label>
+				<input type="radio" name="category" id="filter-form-finance" value="Finance">
+				<label for="filter-form-finance">Finance</label>
+				<input type="radio" name="category" id="filter-form-marketing" value="Marketing">
+				<label for="filter-form-marketing">Marketing</label>
+				<input type="radio" name="category" id="filter-form-all" value="All" checked>
+				<label for="filter-form-all">All</label>
+			</fieldset>
+			<br>
+			<label for="filter-duration-lower">Duration: From </label>
+			<input type="number" name="durationLower" id="filter-duration-lower">
+			<label for="filter-duration-upper">To </label>
+			<input type="number" name="durationUpper" id="filter-duration-upper">
+			<label for="filter-duration-upper">Hours. </label> <br>
+			<input type="submit" value="Search">
+		</form>
+		<div id="events-table"></div>
+		<script type="module" src="/src/main.ts"></script>
+		<script>
+			// <!-- setup hooks -->
+
+		</script>
 	</div>
-
-	<form action="" id="events-filter">
-		<p>Search events by:</p>
-		<label for="filter-id">ID: </label>
-		<input type="text" name="id" id="filter-id"><br>
-		<label for="filter-name">Name: </label>
-		<input type="text" name="name" id="filter-name"><br>
-		<fieldset>
-			<legend>Category</legend>
-			<input type="radio" name="category" id="filter-form-technology" value="Technology">
-			<label for="filter-form-technology">Technology</label>
-			<input type="radio" name="category" id="filter-form-business" value="Business">
-			<label for="filter-form-business">Business</label>
-			<input type="radio" name="category" id="filter-form-finance" value="Finance">
-			<label for="filter-form-finance">Finance</label>
-			<input type="radio" name="category" id="filter-form-marketing" value="Marketing">
-			<label for="filter-form-marketing">Marketing</label>
-			<input type="radio" name="category" id="filter-form-all" value="All">
-			<label for="filter-form-all">All</label>
-		</fieldset>
-		<br>
-		<label for="filter-duration-lower">Duration: From </label>
-		<input type="number" name="durationLower" id="filter-duration-lower">
-		<label for="filter-duration-upper">To </label>
-		<input type="number" name="durationUpper" id="filter-duration-upper">
-		<label for="filter-duration-upper">Hours. </label> <br>
-		<input type="submit" value="Search">
-	</form>
-	<div id="events-table"></div>
-	<script type="module" src="/src/main.ts"></script>
-	<script>
-		// <!-- setup hooks -->
-
-	</script>
 </body>
 
 </html>
