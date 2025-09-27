@@ -85,34 +85,40 @@
 		</div>
 
 
-		<form action="post" id="events-filter">
-			<p>Search events by:</p>
-			<label for="filter-id">ID: </label>
-			<input type="text" name="id" id="filter-id"><br>
-			<label for="filter-name">Name: </label>
-			<input type="text" name="name" id="filter-name"><br>
-			<fieldset>
-				<legend>Category</legend>
-				<input type="radio" name="category" id="filter-form-technology" value="Technology">
-				<label for="filter-form-technology">Technology</label>
-				<input type="radio" name="category" id="filter-form-business" value="Business">
-				<label for="filter-form-business">Business</label>
-				<input type="radio" name="category" id="filter-form-finance" value="Finance">
-				<label for="filter-form-finance">Finance</label>
-				<input type="radio" name="category" id="filter-form-marketing" value="Marketing">
-				<label for="filter-form-marketing">Marketing</label>
-				<input type="radio" name="category" id="filter-form-all" value="All" checked>
-				<label for="filter-form-all">All</label>
-			</fieldset>
-			<br>
-			<label for="filter-duration-lower">Duration: From </label>
-			<input type="number" name="durationLower" id="filter-duration-lower">
-			<label for="filter-duration-upper">To </label>
-			<input type="number" name="durationUpper" id="filter-duration-upper">
-			<label for="filter-duration-upper">Hours. </label> <br>
-			<input type="submit" value="Search">
-		</form>
-		<div id="events-table"></div>
+		<div class="card h-100">
+			<div class="card-body">
+				<h1>Find events to join!</h1>
+				<form action="post" id="events-filter">
+					<p>Search events by:</p>
+					<label for="filter-id">ID: </label>
+					<input type="text" name="id" id="filter-id"><br>
+					<label for="filter-name">Name: </label>
+					<input type="text" name="name" id="filter-name"><br>
+					<fieldset>
+						<legend>Category</legend>
+						<input type="radio" name="category" id="filter-form-business" value="Business">
+						<label for="filter-form-business">Business</label>
+						<input type="radio" name="category" id="filter-form-technology" value="Technology">
+						<label for="filter-form-technology">Technology</label>
+
+						<input type="radio" name="category" id="filter-form-finance" value="Finance">
+						<label for="filter-form-finance">Finance</label>
+						<input type="radio" name="category" id="filter-form-marketing" value="Marketing">
+						<label for="filter-form-marketing">Marketing</label>
+						<input type="radio" name="category" id="filter-form-all" value="All" checked>
+						<label for="filter-form-all">All</label>
+					</fieldset>
+					<br>
+					<label for="filter-duration-lower">Duration: From </label>
+					<input type="number" name="durationLower" id="filter-duration-lower">
+					<label for="filter-duration-upper">To </label>
+					<input type="number" name="durationUpper" id="filter-duration-upper">
+					<label for="filter-duration-upper">Hours. </label> <br>
+					<input type="submit" value="Search">
+				</form>
+				<div id="events-table"></div>
+			</div>
+		</div>
 		<script type="module" src="/src/main.ts"></script>
 		<script>
 			// <!-- setup hooks -->
