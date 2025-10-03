@@ -7,7 +7,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	// width: 90%;
-	background-image: url("./pexels-pixabay-50675.jpg");
+	background-image: url("/pexels-pixabay-50675.jpg");
 }
 
 .content {
@@ -21,6 +21,7 @@ body {
 	margin: auto;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 
 	h2 {
 		margin: auto;
