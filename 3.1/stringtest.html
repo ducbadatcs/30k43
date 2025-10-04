@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<label for="enter-name">Enter your name: </label>
+		<input v-model="name" id="enter-name"><br>
+		<!-- <button @click="setName(name)">Submit!</button> -->
+		<p>{{name == 'duc' ? "Awesome name!" : "Not my name."}}</p>
+	</div>
+
+	<script src="../framework/js/vue.global.js"></script>
+</body>
+
+</html>

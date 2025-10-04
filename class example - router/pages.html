@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../framework/js/vue.global.js" defer></script>
+	<script src="../framework/js/vue-router.global.js" defer></script>
+	<script src="./pages.js" type="module" defer></script>
+</head>
+
+<body>
+
+	<div id="app">
+		<router-link to="/">Home</router-link><br>
+		<router-link to="/about">About</router-link><br>
+		<router-link to="/cities/Hanoi">Hanoi</router-link><br>
+		<router-link to="/cities/Vancouver">Vancouver</router-link><br>
+		<router-link style="display:block" v-for="n in ['richard rapport', 'kirby', 'duc']"
+			:to="'/people/'+n">{{n}}</router-link>
+
+		<router-view></router-view>
+	</div>
+
+
+</body>
+
+</html>
