@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link rel="stylesheet" href="../framework/css/bootstrap.css">
+	<script src="../framework/js/vue.global.js" defer></script>
+	<script src="./form.js" defer></script>ip
+</head>
+
+<body>
+	<div id="app">
+		<form method="post" action="http://mercury.swin.edu.au/it000000/formtest.php">
+			<label for="input-first-name">First Name: </label>
+			<input type="text" id="input-first-name" name="firstName" v-model="firstName"><br>
+			<label for="input-last-name">Last name: </label>
+			<input type="text" id="input-last-name" name="lastName" v-model="lastName"><br>
+			<label for="input-user-name">User name: </label>
+			<input type="text" id="input-user-name" name="userName" v-model="userName"><br>
+			<label for="input-password">Password: </label>
+			<input type="password" name="password" id="input-password" v-model="password"><br>
+			<label for="input-confirm-password">Confirm password: </label>
+			<input type="password" name="confirmPassword" id="input-confirm-password" v-model="confirmPassword"><br>
+			<label for="input-email">Email: </label>
+			<input type="email" name="email" id="input-email" v-model="email"><br>
+			<label for="input-street-address">Street Address: </label>
+			<input type="text" id="input-street-address" name="streetAddress" v-model="streetAddress"><br>
+			<label for="input-suburb">Suburb: </label>
+			<input type="text" name="suburb" id="input-suburb" v-model="suburb"><br>
+			<label for="input-postcode">Postcode: </label>
+			<input type="text" name="postcode" id="input-postcode" v-model="postcode"><br>
+			<label for="input-mobile-number">Mobile Number: </label>
+			<input type="text" name="mobileNumber" id="input-mobile-number" v-model="mobileNumber"><br>
+			<input @click="handleSubmit" type="submit" value="Submit">
+		</form>
+
+		<div>
+			<button @click="showTermsAndConditions = !showTermsAndConditions">Show Terms And Conditions</button>
+			<p v-if="showTermsAndConditions">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates placeat eveniet aliquam ad, sed quo
+				perspiciatis excepturi distinctio accusamus reiciendis officiis. Eius voluptatibus sed reprehenderit
+				numquam tenetur et consequatur laborum!
+			</p>
+		</div>
+	</div>
+
+</body>
+
+</html>

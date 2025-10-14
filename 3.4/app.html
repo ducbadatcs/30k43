@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../framework/css/bootstrap.css">
+	<script src="../framework/js/vue.global.js" defer></script>
+	<script type="module" src="./app.js" defer></script>
+</head>
+
+<body>
+	<div id="app" class="p-2">
+		<h1>Registration App: Cloud Service</h1>
+		<h2>Login Information</h2>
+		<label for="input-username">Enter user name: </label>
+		<input type="text" name="username" id="input-username" v-model="username"><br>
+		<label for="input-password">Enter password: </label>
+		<input type="password" name="password" id="input-password" v-model="password"><br>
+		<label for="input-reenter-password">Re-enter password: </label>
+		<input type="password" name="confirmPassword" id="input-reenter-password" v-model="confirmPassword">
+		<span v-if="password != confirmPassword">
+			Passwords do not match
+		</span>
+		<br>
+		<h2>Phone information</h2>
+		<h3>Operating System</h3>
+		<input type="radio" name="os" id="input-os-android" value="Android" v-model="os"><label for="input-os-android">
+			Android
+		</label><br>
+		<input type="radio" name="os" id="input-os-ios" value="IOS" v-model="os"><label for="input-os-ios"> IOS
+		</label><br>
+		<input type="radio" name="os" id="input-os-windows" value="Windows" v-model="os"><label for="input-os-windows">
+			Windows
+		</label><br>
+		<h3>Model</h3>
+		<label for="input-models">Select phone model: </label>
+		<select name="models" id="input-models" v-model="model">
+			<option value="" disabled></option>
+			<option v-for="model in getPhoneNamesWithOS(os)">{{model}}</option>
+		</select>
+		<div v-if="username.length > 0 && password == confirmPassword && os.length > 0 && model.length > 0">
+			<h3>Summary</h3>
+			<ul>
+				<li>Username: {{username}}</li>
+				<li>OS: {{os}}</li>
+				<li>Phone: {{model}}</li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+
+</html>

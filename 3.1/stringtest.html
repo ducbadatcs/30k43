@@ -17,7 +17,17 @@
 	</div>
 
 	<script src="../framework/js/vue.global.js"></script>
+	<script>
+		const app = Vue.createApp({
+			data() {
+				return {
+					name: ""
+				}
+			}
+		})
 
+		app.mount("#app");
+	</script>
 </body>
 
 </html>

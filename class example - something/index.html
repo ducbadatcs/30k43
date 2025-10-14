@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="../framework/js/vue.global.js" defer></script>
+	<script src="../framework/js/vue-router.global.js" defer></script>
+	<script src="./script.js" defer></script>
+</head>
+
+<body>
+	<div id="app">
+		<nav>
+			<router-link to="/">Home</router-link>
+			<router-link to="/about">About</router-link>
+		</nav>
+
+		<router-view></router-view>
+		<router-view></router-view>
+		<router-view></router-view>
+
+		<app-counter initial="53"></app-counter>
+		<app-counter></app-counter>
+	</div>
+</body>
+
+</html>
