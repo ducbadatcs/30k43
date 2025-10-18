@@ -19,12 +19,16 @@ import { RouterLink, RouterView } from "vue-router";
 
 <style scoped>
 nav {
-	background-color: rgb(108, 137, 182);
+	background-color: black;
+	h1 {
+		color: white;
+	}
 }
 
 a {
 	text-decoration: none;
-	color: black;
+	color: white;
+
 	align-items: center;
 	margin: auto;
 }
