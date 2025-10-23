@@ -1,4 +1,3 @@
-import App from "@/App.vue";
 import ApplicationForm from "@/ApplicationForm.vue";
 import JobComponent from "@/JobComponent.vue";
 import ToDoList from "@/ToDoList.vue";
@@ -9,6 +8,7 @@ const router = createRouter({
 	routes: [
 		// { path: "/", component: App },
 		{ path: "/", component: JobComponent },
+		{ path: "/job/:jobId", component: JobComponent },
 		{ path: "/apply", component: ApplicationForm },
 		{ path: "/todo", component: ToDoList },
 	],

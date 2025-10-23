@@ -9,9 +9,9 @@ import { RouterLink, RouterView } from "vue-router";
 			<h1>Insight Hire</h1>
 		</div>
 		<div class="d-flex flex-row justify-content-evenly col-6">
-			<div><RouterLink to="explore">Job Explorer</RouterLink></div>
-			<div><RouterLink to="apply">Application Form</RouterLink></div>
-			<div><RouterLink to="todo">Todo List</RouterLink></div>
+			<div><RouterLink to="/">Job Explorer</RouterLink></div>
+			<div><RouterLink to="/apply">Application Form</RouterLink></div>
+			<div><RouterLink to="/todo">Todo List</RouterLink></div>
 		</div>
 	</nav>
 	<RouterView></RouterView>

@@ -1,19 +1,39 @@
 <script lang="ts" setup>
-import { jobs } from "./jobs";
+// import { Job, jobs } from "./jobs";
 import JobDetail from "./JobDetail.vue";
 import JobOverview from "./JobOverview.vue";
 import JobList from "./JobList.vue";
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+
+const route = useRoute();
+const selectedjobId =
+	computed<string | undefined>(() => {
+		return route.params.jobId as string | undefined;
+	}) ?? undefined;
+// const selectedJob =
+// 	computed<Job | undefined>(() => jobs.find((job) => job.job_id == selectedjobId.value)) ??
+// 	undefined;
 </script>
 
 <template>
-	<div class="p-2">
-		<JobList></JobList>
-		<div v-if="$route.params.job">
+	<div class="m-2 p-2 d-flex flex-row">
+		<JobList class="w-25"></JobList>
+		<div v-if="selectedjobId == `Overview`">
 			<JobOverview></JobOverview>
 		</div>
-		<div v-else>
+		<div v-else-if="selectedjobId != `Overview`">
 			<JobDetail></JobDetail>
 		</div>
+		<div v-else>
+			<h2>Insight Hire is hiring!</h2>
+			<p>
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat fugiat, omnis
+				voluptatibus, excepturi laboriosam earum recusandae minus harum beatae at obcaecati
+				architecto aperiam incidunt! Nam explicabo itaque sint voluptatum ducimus.
+			</p>
+		</div>
+		<!-- <RouterView></RouterView> -->
 	</div>
 </template>
 
