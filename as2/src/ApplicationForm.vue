@@ -134,81 +134,124 @@ const handleSubmit = (event: Event) => {
 			method="post"
 			action="http://mercury.swin.edu.au/it000000/formtest.php"
 		>
-			<label for="input-first-name">First Name: </label>
-			<input
-				type="text"
-				name="firstName"
-				id="input-first-name"
-				v-model="firstName"
-				required
-			/>
-			<!-- <span class="" v-if="firstName.length < 3">First Name must have at least 3 characters</span> -->
-			<br />
-			<label for="input-last-name">Last Name:</label>
-			<input
-				type="text"
-				name="lastName"
-				id="input-last-name"
-				v-model="lastName"
-				required
-			/><br />
-			<label for="input-user-name">User Name: </label>
-			<input
-				type="text"
-				name="userName"
-				id="input-user-name"
-				v-model="userName"
-				required
-			/><br />
-			<label for="input-password">Password: </label>
-			<input
-				type="password"
-				name="password"
-				id="input-password"
-				v-model="password"
-				required
-			/><br />
-			<label for="input-confirm-password">Confirm Password: </label>
-			<input
-				type="password"
-				name="confirmPassword"
-				id="input-confirm-password"
-				v-model="confirmPassword"
-			/><br />
-			<label for="input-email">Email: </label>
-			<input type="text" name="email" id="input-email" v-model="email" required /><br />
-			<label for="input-street-address">Street Address: </label>
-			<input
-				type="text"
-				name="streetAddress"
-				id="input-street-address"
-				v-model="streetAddress"
-			/><br />
-			<label for="input-suburb">Suburb: </label>
-			<input type="text" name="suburb" id="input-suburb" v-model="suburb" /><br />
-			<label for="input-postcode">Postcode: </label>
-			<input
-				type="text"
-				name="postCode"
-				id="input-postcode"
-				v-model="postCode"
-				required
-			/><br />
-			<label for="input-mobile-number">Mobile Number: </label>
-			<input
-				type="text"
-				name="mobileNumber"
-				id="input-mobile-number"
-				v-model="mobileNumber"
-			/><br />
-			<label for="input-date-of-birth">Date Of Birth: </label>
-			<input
-				type="date"
-				name="dateOfBirth"
-				id="input-date-of-birth"
-				v-model="dateOfBirth"
-				required
-			/><br />
+			<fieldset class="form-group">
+				<legend>Personal Information</legend>
+				<div class="row">
+					<div class="col m-2">
+						<label for="input-first-name">First Name: </label>
+						<input
+							type="text"
+							name="firstName"
+							id="input-first-name"
+							v-model="firstName"
+							required
+						/>
+						<!-- <span class="" v-if="firstName.length < 3">First Name must have at least 3 characters</span> -->
+						<br />
+					</div>
+
+					<div class="col m-2">
+						<label for="input-last-name">Last Name:</label>
+						<input
+							type="text"
+							name="lastName"
+							id="input-last-name"
+							v-model="lastName"
+							required
+						/><br />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col m-2">
+						<label for="input-mobile-number">Mobile Number: </label>
+						<input
+							type="text"
+							name="mobileNumber"
+							id="input-mobile-number"
+							v-model="mobileNumber"
+						/><br />
+					</div>
+					<div class="col m-2">
+						<label for="input-date-of-birth">Date Of Birth: </label>
+						<input
+							type="date"
+							name="dateOfBirth"
+							id="input-date-of-birth"
+							v-model="dateOfBirth"
+							required
+						/><br />
+					</div>
+				</div>
+			</fieldset>
+			<fieldset class="form-group">
+				<legend>Login Info</legend>
+				<div class="row">
+					<div class="col m-2">
+						<label for="input-email">Email: </label>
+						<input
+							type="email"
+							name="email"
+							id="input-email"
+							v-model="email"
+							required
+						/><br />
+					</div>
+					<div class="col m-2">
+						<label for="input-user-name">User Name: </label>
+						<input
+							type="text"
+							name="userName"
+							id="input-user-name"
+							v-model="userName"
+							required
+						/><br />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col m-2">
+						<label for="input-password">Password: </label>
+						<input
+							type="password"
+							name="password"
+							id="input-password"
+							v-model="password"
+							required
+						/><br />
+					</div>
+					<div class="col m-2">
+						<label for="input-confirm-password">Confirm Password: </label>
+						<input
+							type="password"
+							name="confirmPassword"
+							id="input-confirm-password"
+							v-model="confirmPassword"
+						/><br />
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset class="form-group">
+				<label for="input-street-address">Street Address: </label>
+				<input
+					type="text"
+					name="streetAddress"
+					id="input-street-address"
+					v-model="streetAddress"
+				/><br />
+				<label for="input-suburb">Suburb: </label>
+				<input type="text" name="suburb" id="input-suburb" v-model="suburb" /><br />
+				<label for="input-postcode">Postcode: </label>
+				<input
+					type="text"
+					name="postCode"
+					id="input-postcode"
+					v-model="postCode"
+					required
+				/><br />
+			</fieldset>
+
 			<label for="input-preferred-job-category">Preferred Job Category: </label>
 			<select
 				name="preferedJobCategory"

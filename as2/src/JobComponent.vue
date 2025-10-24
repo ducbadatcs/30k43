@@ -19,13 +19,13 @@ const selectedjobId =
 <template>
 	<div class="m-2 p-2 d-flex flex-row">
 		<JobList class="w-25"></JobList>
-		<div v-if="selectedjobId == `Overview`">
+		<div v-if="selectedjobId == `Overview`" class="w-75">
 			<JobOverview></JobOverview>
 		</div>
-		<div v-else-if="selectedjobId != `Overview`">
+		<div v-else-if="selectedjobId != `Overview`" class="w-75">
 			<JobDetail></JobDetail>
 		</div>
-		<div v-else>
+		<div v-else class="w-75">
 			<h2>Insight Hire is hiring!</h2>
 			<p>
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat fugiat, omnis

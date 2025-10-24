@@ -12,7 +12,7 @@ const jobsWithOverview: Job[] = [overviewJob].concat(jobs);
 
 <template>
 	<!-- so this can be block -->
-	<div>
+	<div class="w-25">
 		<div v-for="job in jobsWithOverview" :key="job.job_id">
 			<!-- relative -->
 			<RouterLink :to="`/job/${job.job_id}`">{{ job.job_id }}</RouterLink>
