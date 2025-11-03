@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../framework/css/bootstrap.min.css">
+	<script src="../framework/js/vue.global.js" defer></script>
+	<script src="../framework/js/vuejs-paginate-next.umd.js" defer></script>
+	<script src="./scripts.js" defer></script>
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="app">
+		<h1>Blog</h1>
+
+
+		<label for="input-search">Search: </label>
+		<input type="search" name="search" v-model="search" id="input-search" placeholder="search">
+		<p v-if="posts.length == 0">{{message}}</p>
+		<table v-else class="table table-bordered table-hover table-striped">
+			<thead>
+				<tr>
+					<th>title</th>
+					<th>body</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="post of filteredPosts">
+					<td>{{post.title}}</td>
+					<td>{{post.body}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>Total displayed: {{filteredPosts.length}}</p>
+		<label for="select-per-page">Number of entires per page:</label>
+		<select name="perPage" id="select-per-page" v-model="perPage">
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="10">10</option>
+		</select>
+		<paginate :page-count="pageCount" :click-handler="nonsense" v-model="currentPage">
+		</paginate>
+	</div>
+</body>
+
+</html>
