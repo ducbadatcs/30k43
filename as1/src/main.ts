@@ -4,6 +4,7 @@ import "../styles.scss";
 const tableFilterForm = document.getElementById(
 	"events-filter"
 ) as HTMLFormElement | null;
+
 if (tableFilterForm) {
 	tableFilterForm.addEventListener("submit", (event) => {
 		// parse form data

@@ -2,7 +2,7 @@
 import { defineModel, ref } from "vue";
 class Task {
 	taskName: string = "";
-	isLowPriority: boolean = true;
+	isLowPriority: boolean = false;
 }
 
 const tasks = ref<Task[]>([]); // make it reactive!

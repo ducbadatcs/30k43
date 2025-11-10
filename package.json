@@ -18,6 +18,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@crazydos/vue-markdown": "^1.1.4",
     "bootstrap": "^5.3.8",
     "vite": "^7.1.5",
     "vue": "^3.5.21"

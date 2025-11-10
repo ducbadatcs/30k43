@@ -19,7 +19,7 @@ const mobileNumber = defineModel<string>("mobileNumber", { default: "" });
 const dateOfBirth = defineModel<string>("dateOfBirth", { default: "" });
 const preferredJobCategory = defineModel<string>("preferredJobCategory", { default: "" });
 
-const showTermsAndConditions = defineModel<boolean>("showTermsAndConditions", { default: false });
+const showTermsAndConditions = defineModel<boolean>("showTermsAndConditions", { default: true });
 
 // letters only, required
 const checkFirstName = computed<boolean>(() => {
