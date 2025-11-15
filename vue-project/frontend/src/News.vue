@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed, watch } from "vue";
 import { VueAwesomePaginate } from "vue-awesome-paginate";
-import Paginate from "vuejs-paginate-next";
+// import Paginate from "vuejs-paginate-next";
 
 const category = defineModel<string>("category", { default: "" });
 

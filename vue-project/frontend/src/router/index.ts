@@ -1,7 +1,6 @@
 import About from "@/About.vue";
-import App from "@/App.vue";
 import Home from "@/Home.vue";
-import MainApp from "@/MainApp.vue";
+import MainApp from "@/MainApp/MainApp.vue";
 import News from "@/News.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
