@@ -1,0 +1,13 @@
+fastapi
+langchain-huggingface
+langchain-google-genai
+langchain-community
+langchain-docling
+fastapi[standard]
+faiss
+tiktoken
+sentence-transformers
+langchain-milvus
+hf_xet
+pymilvus[milvus_lite]
+unstructured
