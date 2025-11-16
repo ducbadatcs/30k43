@@ -6,10 +6,10 @@ import FileUpload from "./FileUpload.vue";
 
 <template>
   <div class="d-flex flex-row">
-    <div class="w-25 p-2 border border-end">
+    <div class="p-2 border border-end" style="width: 30%">
       <FileUpload></FileUpload>
     </div>
-    <div class="w-75 p-2 border-start">
+    <div class="p-2 border-start" style="width: 70%">
       <Chat></Chat>
     </div>
   </div>

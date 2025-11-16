@@ -15,6 +15,16 @@ class FileData {
     this.name = name;
     this.size = size;
   }
+
+  public convertFileSize(): string {
+    if (this.size < 1000) {
+      return `${this.size} B`;
+    } else if (this.size < 1000000) {
+      return `${(this.size / 1000).toFixed(1)} KB`;
+    } else {
+      return `${(this.size / 1000000).toFixed(2)} MB`;
+    }
+  }
 }
 
 const handleFileChange = (event: Event) => {
@@ -26,6 +36,18 @@ const handleFileChange = (event: Event) => {
 };
 
 const files = ref<FileData[]>([]);
+
+const fetchFiles = async () => {
+  try {
+    const data = await axios.get("http://localhost:8000/files").then((response) => {
+      return response.data;
+    });
+    console.log(data);
+    files.value = data.map((file: any) => new FileData(file.name, file.size));
+  } catch (error: any) {
+    console.error("Retrieve error:", error);
+  }
+};
 
 const handleFileUpload = async (event: Event) => {
   event.preventDefault();
@@ -55,6 +77,7 @@ const handleFileUpload = async (event: Event) => {
       inputFile.value.value = "";
       selectedFileName.value = "";
     }
+    await fetchFiles();
   } catch (error: any) {
     uploadStatus.value = `Error: ${error.response?.data?.detail || error.message || "Upload failed"}`;
     console.error("Upload error:", error);
@@ -76,18 +99,8 @@ const handleFileUpload = async (event: Event) => {
 };
 
 // get files
-
 onMounted(async () => {
-  try {
-    const data = await axios.get("http://localhost:8000/files").then((response) => {
-      return response.data;
-    });
-    console.log(data);
-    files.value = data;
-  } catch (error: any) {
-    console.error("Retrieve error:", error);
-  } finally {
-  }
+  await fetchFiles();
 });
 </script>
 
@@ -122,7 +135,7 @@ onMounted(async () => {
       <tbody>
         <tr v-for="(file, i) in files" :key="i">
           <td>{{ file.name }}</td>
-          <td>{{ file.size }}</td>
+          <td>{{ file.convertFileSize() }}</td>
         </tr>
       </tbody>
     </table>
